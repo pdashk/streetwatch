@@ -168,24 +168,26 @@ UGstrucs = [UG1, UG2, UG3, UG4, UG5]
 
 # Uses preselected coordinates and headings from above to make generate API requests
 # to generate image dataset.
-for struct_idx in range(len(OHstrucs)):
-    currStruct = OHstrucs[struct_idx]
-    for view_idx in range(len(currStruct)):
-        loc = currStruct[view_idx]['coord']
-        heading = currStruct[view_idx]['heading']
-        for f in [90, 60, 25]:
-            fName = f"OH_{struct_idx}_v{view_idx}_f{f}" 
-            get_image(loc, heading=heading,fov=f, saveImage=True, imgFileName=fName)
+
+def get_dataset():
+    for struct_idx in range(len(OHstrucs)):
+        currStruct = OHstrucs[struct_idx]
+        for view_idx in range(len(currStruct)):
+            loc = currStruct[view_idx]['coord']
+            heading = currStruct[view_idx]['heading']
+            for f in [90, 60, 25]:
+                fName = f"OH_{struct_idx}_v{view_idx}_f{f}" 
+                get_image(loc, heading=heading,fov=f, saveImage=True, imgFileName=fName)
 
 
-for struct_idx in range(len(UGstrucs)):
-    currStruct = UGstrucs[struct_idx]
-    for view_idx in range(len(currStruct)):
-        loc = currStruct[view_idx]['coord']
-        heading = currStruct[view_idx]['heading']
-        for f in [90, 60, 25]:
-            fName = f"UG_{struct_idx}_v{view_idx}_f{f}" 
-            get_image(loc, heading=heading,fov=f, saveImage=True, imgFileName=fName)
+    for struct_idx in range(len(UGstrucs)):
+        currStruct = UGstrucs[struct_idx]
+        for view_idx in range(len(currStruct)):
+            loc = currStruct[view_idx]['coord']
+            heading = currStruct[view_idx]['heading']
+            for f in [90, 60, 25]:
+                fName = f"UG_{struct_idx}_v{view_idx}_f{f}" 
+                get_image(loc, heading=heading,fov=f, saveImage=True, imgFileName=fName)
 
 
 
