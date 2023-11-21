@@ -11,7 +11,9 @@ OUTPATH = 'data/images/'
 
 
 from collect_images.phi import create_images as images_phi
+from collect_images.kevin import create_images as images_kevin
 
 
 if __name__== "__main__":
-    images_phi(INPUT, OUTPATH)
+    #images_phi(INPUT, OUTPATH)
+    images_kevin('data/structures_info.json', OUTPATH)
