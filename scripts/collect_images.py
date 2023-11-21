@@ -11,7 +11,8 @@ OUTPATH = 'data/images/'
 
 
 from collect_images.phi import create_images as images_phi
-
+from collect_images.kelly import collect_imgs as images_kelly
 
 if __name__== "__main__":
     images_phi(INPUT, OUTPATH)
+    images_kelly(OUTPATH)
