@@ -53,7 +53,7 @@ def get_oh(outpath, structure_json):
                     pic_response = requests.get(sign_url(input_url=gen_url(pic_params)))
                 else:
                     pic_response = requests.get(input_url=gen_url(pic_params))
-                with open(os.path.join(outpath,'UG'+str(i)+'_'+str(j)+'_'+str(f)+'.jpg'), 'wb') as file:
+                with open(os.path.join(outpath,'OH'+str(i)+'_'+str(j)+'_'+str(f)+'.jpg'), 'wb') as file:
                     file.write(pic_response.content)
 
 

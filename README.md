@@ -5,6 +5,8 @@ San Diego Gas & Electric leverages many different public and private data source
 ## Data Sources
 Data for this project is collected from [Google Street View Static API](https://developers.google.com/maps/documentation/streetview/overview). 
 
+To run sunny.py, you need specifically structured JSON file. The JSON file will have 2 main item(OH and UG) and each should be the list of 5 different pole and within each pole, there should be 'loc' for lat and long 'heading' for heading direction of the image.
+
 ## Setup
 
 ### Conda Environment
