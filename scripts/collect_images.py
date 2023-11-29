@@ -10,8 +10,8 @@ INPUT = 'data/Q1ProjectStructureList.xlsx'
 OUTPATH = 'data/images/'
 
 
-from collect_images.phi import create_images as images_phi
+from collect_images.lauren import create_images as images_lauren
 
 
 if __name__== "__main__":
-    images_phi(INPUT, OUTPATH)
+    images_lauren()
