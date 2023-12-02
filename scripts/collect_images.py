@@ -16,4 +16,4 @@ from collect_images.kevin import create_images as images_kevin
 
 if __name__== "__main__":
     #images_phi(INPUT, OUTPATH)
-    images_kevin('data/structures_info.json', OUTPATH)
+    images_kevin('data/kevin_structures.json', OUTPATH)

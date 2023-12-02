@@ -106,4 +106,4 @@ def create_images(data_file = '', output_path = ''):
                     )
 # %%
 if __name__== "__main__":
-    create_images(data_file='data/structures_info.json', output_path='data/images/')
+    create_images(data_file='data/kevin_structures.json', output_path='data/images/')
