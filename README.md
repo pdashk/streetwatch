@@ -16,6 +16,9 @@ conda env create -f environment.yml
 ### Credentials
 Store credentials in `.env` file and load using [python-dotenv](https://pypi.org/project/python-dotenv/).
 
+## Additional Files
+Add 'jonathan_structures.json' file located in the HDSI Capstone 2023-2024 Sharepoint Documents/Data folder to the data directory. This is needed in order to run 'jonathan.py'.
+
 ### Training Data
 Create training data by running the following after setup is complete:
 ```
