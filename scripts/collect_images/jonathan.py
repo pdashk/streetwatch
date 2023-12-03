@@ -1,35 +1,27 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
-
-
 import requests
 
 from PIL import Image
 from io import BytesIO
 
 from dotenv import load_dotenv
-load_dotenv()
 
 import os
 import yaml
-
-api_key = os.getenv("API_KEY")
-secret = os.getenv("SECRET")
-
-
-# In[1]:
-
-
-""" Signs a URL using a URL signing secret """
+import json
 
 import hashlib
 import hmac
 import base64
 import urllib.parse as urlparse
 
+load_dotenv()
+api_key = os.getenv("API_KEY")
+secret = os.getenv("SECRET")
 
+""" Signs a URL using a URL signing secret """
 def sign_url(input_url=None, secret=None):
     """ Sign a request URL with a URL signing secret.
       Usage:
@@ -67,10 +59,6 @@ def sign_url(input_url=None, secret=None):
     return original_url + "&signature=" + encoded_signature.decode()
 
 
-
-# In[ ]:q
-
-
 def save_image_file(latitude, longitude, heading, pitch, fov, secret, api_key, name, outpath):
 
     size = '400x400'
@@ -81,29 +69,26 @@ def save_image_file(latitude, longitude, heading, pitch, fov, secret, api_key, n
     response = requests.get(s)
 
     if response.status_code == 200:
-
         n = outpath + name + ".jpg"
         with open(n, 'wb') as f:
             f.write(response.content)
-    
     else:
         print(f'Error: {response.status_code}')
 
+        
+def get_images(coord_json_file, outpath):
+    with open(coord_json_file, 'r') as file:
+        data = json.load(file)
 
-# In[ ]:
-
-
-def get_images(yaml_file, outpath):
-    with open(yaml_file, 'r') as file:
-        existing_data = yaml.safe_load(file)
-
-        c = 0 #counter variable for naming only
-        for img in existing_data:
-            for fov in [50,75,90]:
-                c = c + 1
+    c = 0 #counter variable for naming only
+    for name, img in data.items():
+        for i in range(5):
+            for fov in [50, 75, 90]:
+                c += 1
                 if c > 15:
                     c = 1
-                name = img['name'] + "_" + str(c)+"_" + str(fov)
-                save_image_file(img['latitude'], img['longitude'],img['heading'],img['pitch'], fov, secret, api_key, name, outpath)
+                img_name = name + "_" + str(c) + "_" + str(fov)
             
+                save_image_file(img['latitude'][i], img['longitude'][i], img['heading'][i], img['pitch'][i], fov, secret, api_key, img_name, outpath)
+    
 

@@ -6,7 +6,7 @@ API_KEY = os.environ.get("API_KEY")
 SECRET = os.environ.get("SECRET")
 
 
-INPUT = 'data/img_data.yaml'
+INPUT = 'data/jonathan_structures.json'
 OUTPATH = 'data/jonathan_images/'
 
 
