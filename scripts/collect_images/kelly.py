@@ -12,7 +12,7 @@ import matplotlib.image as mpimg
 load_dotenv()
 # Call the variables in the .env file
 api_key = os.getenv("API_KEY")
-sign_key = os.getenv("SIGN_KEY")
+sign_key = os.getenv("SECRET")
 base_url = "https://maps.googleapis.com/maps/api/streetview?"
 
 def sign_url(input_url=None, secret=None):
